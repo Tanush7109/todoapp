@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <h3 class="text-danger text-center">{{ task_status }}</h3>
+    <table class="table mt-5 table-light rounded w-50 mx-auto table-rounded table-bordered">
+        <thead>
+            <tr style="cursor:pointer;">
+                <th scope="col" style="cursor:pointer;">Task no.</th>
+                <th scope="col" style="cursor:pointer;">Task</th>
+                <th scope="col" style="cursor:pointer;">Task description</th>
+                <th scope="col" style="cursor:pointer;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+                <tr style="cursor:pointer;">
+                    <th scope="row" style="cursor:pointer;">{{ forloop.counter }}</th>
+                    <td style="cursor:pointer;">{{ task.task }}</td>
+                    <td style="cursor:pointer;">{{ task.task_desc }}</td>
+                    <td><a href="/delete/{{ task.id }}" class="btn btn-danger">Delete item</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock body %}
